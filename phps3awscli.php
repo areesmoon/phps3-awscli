@@ -87,7 +87,7 @@ class Phps3awscli {
     # $path_dest is whithout bucket name and no leading slice, any sub directory will be created automatically
     public function push_all($bucket, $path_src, $path_dest, $acl=''){
         $path_dest = 's3://'.$bucket.'/'.$path_dest;
-        $output = $this->exe_command('aws s3 cp "'.$path_src.'" "'.$path_dest.'" --recursive'.($acl ? ' --acl ' : '').$acl);
+        $output = $this->exe_command('aws s3 cp '.$path_src.' "'.$path_dest.'" --recursive'.($acl ? ' --acl ' : '').$acl);
         if($output===NULL){
             return array();
         }else{
